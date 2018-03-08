@@ -9,6 +9,7 @@ public class MinionMovement : MonoBehaviour
     private MinionControl minionControlScript;
     private PlayerValues playerValuesScript;
 
+
     private void Awake()
     {
 
@@ -16,21 +17,19 @@ public class MinionMovement : MonoBehaviour
 
         minionControlScript = GetComponent<MinionControl>();
 
-        playerValuesScript = GetComponent<PlayerValues>();
+        target = GameObject.Find("Player").transform;
+        playerValuesScript = target.gameObject.GetComponent<PlayerValues>();
+
+
     }
 
     void Start()
     {
-        target = GameObject.Find("Player").transform;
+       
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-
-        }
-
         if (!minionControlScript.Command)
         {
             //x movement
@@ -61,8 +60,9 @@ public class MinionMovement : MonoBehaviour
         //Laufbefehl in Blickrichtung
         if (minionControlScript.Command)
         {
-            minionRigidbody.velocity = Vector3.forward *playerValuesScript.headingAngleX;
-            minionRigidbody.velocity = Vector3.right * playerValuesScript.headingAngleZ;
+            //Ausrichtung des Spielers muss übernommen werden
+            transform.eulerAngles = new Vector3(0, playerValuesScript.headingDirection, 0);   
+            minionRigidbody.velocity = transform.forward * speed;
 
 
         }

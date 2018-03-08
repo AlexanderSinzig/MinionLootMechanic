@@ -13,6 +13,7 @@ public class MinionSpawn : MonoBehaviour
     }
 
     void Start () {
+        //Erzeugung mehrerer Minions
 		for (int i = 0; i < minionIndex.Length; i++)
         {
             Instantiate

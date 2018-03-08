@@ -15,14 +15,14 @@ public class MinionControl : MonoBehaviour
     }
 
     void Start () {
-        maxTime = 60;
+        maxTime = 90;
         commandTimer = 0;
 	}
 	
 	void Update () {
         
         //untaetige Minions erhalten einen Befehl
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             if (Command == false)
             {
@@ -31,7 +31,7 @@ public class MinionControl : MonoBehaviour
             }   
         }
         
-        //Befehl endet nach 60 Frames
+        //Befehl endet nach 'maxTime' Frames
         if (commandTimer > 0)
         {
             commandTimer--;

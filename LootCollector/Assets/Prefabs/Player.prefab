@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114942122473552468}
   - component: {fileID: 114892567923719308}
   - component: {fileID: 114296902453661868}
+  - component: {fileID: 114719597052751490}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -215,6 +216,19 @@ MonoBehaviour:
   minimumY: -60
   maximumY: 60
   frameCounter: 20
+--- !u!114 &114719597052751490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1535134108489502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77c70ee41a086645b6bd77364a3ed17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minionPrefab: {fileID: 1740918842213530, guid: 9aa9c4db6919c2540974702180b11aa5,
+    type: 2}
 --- !u!114 &114892567923719308
 MonoBehaviour:
   m_ObjectHideFlags: 1
