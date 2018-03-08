@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class MinionControl : MonoBehaviour
 {
-    public MinionSpawn minionSpawnScript;
+    
     private bool command = false;
     private int maxTime;
     private int commandTimer;
 
+    //fuer das looten
+    public bool hasLoot;
+    public int lootValue;
+
     private void Awake()
     {
-        minionSpawnScript = GetComponent<MinionSpawn>();
-    }
-
-    void Start () {
         maxTime = 90;
         commandTimer = 0;
-	}
+        hasLoot = false;
+        lootValue = 0;
+    }
+
 	
 	void Update () {
         
@@ -40,6 +43,23 @@ public class MinionControl : MonoBehaviour
         {
             Command = false;
         }
+
+        //alle Minions mit Befehl werden zurueck gerufen
+        if (Input.GetButton("Fire2"))
+        {
+            if (Command == true)
+            {
+                Command = false;
+            }
+        }
+    }
+
+    public void Looting (int goldAmount)
+    {
+        //Gold speichern und Befehl beenden
+        hasLoot = true;
+        lootValue += goldAmount;
+        Command = false;
     }
 
     public bool Command

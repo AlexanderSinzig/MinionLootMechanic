@@ -32,7 +32,7 @@ public class MinionMovement : MonoBehaviour
     {
         if (!minionControlScript.Command)
         {
-            //x movement
+            //x Bewegung
             if (transform.position.x < target.position.x - 3)
             {
                 minionRigidbody.velocity = Vector3.right * speed;
@@ -42,7 +42,7 @@ public class MinionMovement : MonoBehaviour
             {
                 minionRigidbody.velocity = -(Vector3.right) * speed;
             }
-            //z movement
+            //z Bewegung
             else if (transform.position.z < target.position.z - 3)
             {
                 minionRigidbody.velocity = Vector3.forward * speed;
@@ -54,6 +54,14 @@ public class MinionMovement : MonoBehaviour
             else
             {
                 minionRigidbody.velocity = Vector3.zero;
+
+                //Loot abgeben
+                if (minionControlScript.hasLoot)
+                {
+                    playerValuesScript.playerGold += minionControlScript.lootValue;
+                    minionControlScript.lootValue = 0;
+                    minionControlScript.hasLoot = false;
+                }
             }
         }
 

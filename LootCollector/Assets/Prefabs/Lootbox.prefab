@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33798625000351908}
   - component: {fileID: 65073415643995382}
   - component: {fileID: 23774204636562154}
+  - component: {fileID: 114815024979478106}
   m_Layer: 0
   m_Name: Lootbox
   m_TagString: Untagged
@@ -93,3 +94,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114815024979478106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1763194630758108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a2bb03b16d6bc245accd5f71430496d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

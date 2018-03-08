@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Imported Scripts\CharacterMotorC.cs" />
     <Compile Include="Assets\Scripts\Imported Scripts\FPSInputControllerC.cs" />
     <Compile Include="Assets\Scripts\Imported Scripts\MouseLook.cs" />
+    <Compile Include="Assets\Scripts\Loot.cs" />
     <Compile Include="Assets\Scripts\MinionControl.cs" />
     <Compile Include="Assets\Scripts\MinionMovement.cs" />
     <Compile Include="Assets\Scripts\MinionSpawn.cs" />

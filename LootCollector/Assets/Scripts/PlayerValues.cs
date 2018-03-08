@@ -7,16 +7,25 @@ public class PlayerValues : MonoBehaviour {
 
 
     public float headingDirection;
-    
-	
+    public int playerGold;
 
-	void Update () {
+    private void Awake()
+    {
+        playerGold = 0;
+    }
+
+    void Update () {
 
         //headingDirection wird beim halten der Maustaste aktualisiert und auf die aktuelle Blickrichtung gesetzt
 		if (Input.GetButton("Fire1"))
         {
             headingDirection = transform.rotation.eulerAngles.y;
-            Debug.Log(headingDirection);
+            //Debug.Log(headingDirection);
+        }
+        //nur zum Test
+        if (Input.GetButtonDown("Fire2"))
+        {
+            Debug.Log(playerGold);
         }
 	}
 }
