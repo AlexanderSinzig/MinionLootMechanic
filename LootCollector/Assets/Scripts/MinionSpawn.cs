@@ -13,7 +13,7 @@ public class MinionSpawn : MonoBehaviour
     }
 
     void Start () {
-        //Erzeugung mehrerer Minions
+        //create several minions as instances of the same prefab
 		for (int i = 0; i < minionIndex.Length; i++)
         {
             Instantiate
@@ -22,17 +22,17 @@ public class MinionSpawn : MonoBehaviour
                 new Vector3(transform.position.x + i, transform.position.y - 0.5f, transform.position.z + 5 - i), 
                 transform.rotation
             );
-            //indizierung der Minions
-            minionIndex[i] = i;
+            //give each minion its own index
+            //this would have been necessary if the minions would be controlled separately
+            //minionIndex[i] = i;
         }
 	}
 
-	void Update () {
-		
-	}
-
+    /*
+    //this part is also not needed if all minions are controlled at once
     public int[] MinionIndex
     {
         get { return minionIndex; }
     }
+    */
 }

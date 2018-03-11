@@ -3,29 +3,58 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerValues : MonoBehaviour {
-    Vector3 forward = Vector3.forward;
-
 
     public float headingDirection;
-    public int playerGold;
+    //for gold management and showing label
+    public int playerNewGold;
+    private int playerCurrentGold;
+    private bool showGold = false;
+    private int labelTimer;
+    private int maxLabelTimer;
 
     private void Awake()
     {
-        playerGold = 0;
+        playerNewGold = 0;
+        playerCurrentGold = 0;
+        labelTimer = 0;
+        maxLabelTimer = 90;
     }
 
     void Update () {
 
-        //headingDirection wird beim halten der Maustaste aktualisiert und auf die aktuelle Blickrichtung gesetzt
+        //headingDirection is set to the y-rotation the player has and is updated as long as the player holds the button
 		if (Input.GetButton("Fire1"))
         {
             headingDirection = transform.rotation.eulerAngles.y;
-            //Debug.Log(headingDirection);
         }
-        //nur zum Test
-        if (Input.GetButtonDown("Fire2"))
+
+        //show the amount of Gold for a short time, when the amount changes
+        if (playerCurrentGold != playerNewGold)
         {
-            Debug.Log(playerGold);
+            playerCurrentGold = playerNewGold;
+            showGold = true;
+            labelTimer = maxLabelTimer;
+        }
+
+        //if the timer reaches 0, the label is no longer shown
+        if (labelTimer > 0)
+        {
+            labelTimer--;
+        }
+        else
+        {
+            showGold = false;
         }
 	}
+
+
+    /// <summary>
+    /// the label wich is shown every time you collect gold
+    /// </summary>
+    void OnGUI()
+    {
+        
+        if (showGold)
+            GUI.Label(new Rect(100, 10, 200, 40), "Gold: " + playerCurrentGold);
+    }
 }
